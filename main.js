@@ -15,8 +15,10 @@ const fish = require('./fish.json');
 const config = require('./config.json');
 const url = "mongodb://localhost:27017/";
 const prefix = config.prefix;
+const format = new Intl.NumberFormat();
 
-var embed = new Discord.MessageEmbed()
+
+var embed = new Discord.MessageEmbed();
 
 //Connect to mongodb
 MongoClient.connect(url, function (err, db) {
@@ -31,26 +33,24 @@ MongoClient.connect(url, function (err, db) {
 		dbo.createCollection("fish", function (err, res) {
 			if (err) throw err;
 			console.log("fish collection initialized");
-			db.close();
 		});
 
 		//Create the user collection
 		dbo.createCollection("user", function (err, res) {
 			if (err) throw err;
 			console.log("user collection initialized");
-			db.close();
 		});
 
-		console.log(dbo.collection("fish").countDocuments());
-		if (dbo.collection("fish").countDocuments() === 0) {
-			dbo.collection("fish").insertMany(fish.fish, function (err, res) {
-				if (err) throw err;
-				console.log("Inserted " + res.insertedCount + " fish into the database!");
-				db.close();
-			});
-		} else {
-			console.log("Fish database alread initalized");
-		}
+		dbo.collection("fish").countDocuments().then(num => {
+			if (num === 0) {
+				dbo.collection("fish").insertMany(fish.fish, function (err, res) {
+					if (err) throw err;
+					console.log("Inserted " + res.insertedCount + " fish into the database!");
+				});
+			} else {
+				console.log("fish database already up to date");
+			}
+		});
 	});
 
 
@@ -66,12 +66,29 @@ MongoClient.connect(url, function (err, db) {
 		 * The command used for actually fishing
 		 */
 		if (command === 'fish') {
-			if (args.length != 1) {
-				buildFishEmbed(fish.fish[0]);
-			} else {
-				buildFishEmbed(fish.fish[Number(args[0])]);
-			}
-			message.channel.send(embed);
+			dbo.collection("user").find({
+				id: message.author.id
+			}).toArray(function(err, result) {
+				if (result.length === 0) {
+					message.channel.send("You can't go fishing yet! Go to the bank to be added to the database.");
+				} else {
+					if (args.length != 1) {
+						buildFishEmbed(fish.fish[0]);
+					} else {
+						var caught = fish.fish[Number(args[0])];
+						caught.size = fishSize(caught);
+						
+						buildFishEmbed(caught);
+
+						dbo.collection("user").updateOne({id: message.author.id}, {$set: {fish: addFish(result[0], caught, message.channel)}}, function(err, res) {
+							if (err) throw err;
+							console.log("1 document updated");
+						});
+					}
+				}
+				
+			});
+			
 		}
 
 		/* Bank command
@@ -79,14 +96,37 @@ MongoClient.connect(url, function (err, db) {
 		 * For selling and checking balance
 		 */
 		else if (command === 'bank') {
-			var myobj = { username: "kyroxus", address: "Highway 37" };
-			dbo.collection("customers").insertOne(myobj, function(err, res) {
-				if (err) throw err;
-				console.log("1 document inserted");
-				db.close();
-			});
+			dbo.collection("user").find({
+				id: message.author.id
+			}).toArray(function(err, result) {
+				
+				if (result.length === 0) {
+					message.channel.send("It appears you aren't in the database. Let me add you now!");
 
-			console.log(dbo.collection('user').find({username : "kyroxus"}).limit(1));
+					var fishList = [];
+					for (i = 0; i < 9; i++) {
+						fishList.push({name: "Empty", size: 0.0, price: 0});
+					}
+
+					var myobj = {
+						name: message.author.username,
+						id: message.author.id,
+						bells: 0,
+						fish: fishList
+					};
+
+					console.log(fish);
+
+					dbo.collection("user").insertOne(myobj, function (err, res) {
+						if (err) throw err;
+						console.log(myobj.name + " has been added to the database.");
+						message.channel.send("You are now in the database! Run the command again to see your menu.");
+					});
+				} else {
+					buildUserEmbed(message.author, result[0]);
+					message.channel.send(embed);
+				}
+			});
 
 		}
 	});
@@ -107,7 +147,7 @@ MongoClient.connect(url, function (err, db) {
 				inline: true
 			}, {
 				name: 'Size',
-				value: fishSize(fish) + ' cm',
+				value: fish.size + ' cm',
 				inline: true
 			}, {
 				name: 'Rarity',
@@ -115,6 +155,74 @@ MongoClient.connect(url, function (err, db) {
 				inline: true
 			}, )
 			.setTimestamp();
+	}
+
+	/* buildUserEmbed
+	 * 
+	 * input type: discord user, fish user
+	 * 
+	 * Creates the catch message based on the fish caught
+	 */
+	function buildUserEmbed(disUser, user) {
+		var entryList = [];
+			for (i = 0; i < 9; i++) {
+				entryList.push({
+					name: (i+1) + '.',
+					value: user.fish[i].name + '\n' + user.fish[i].size + ' cm',
+					inline: true
+				});
+			}
+
+		embed = new Discord.MessageEmbed().setTitle(disUser.username + '\'s bank!')
+			//.setDescription(greeting() + ', ' + disUser.username + '!\nYou currently have ' + format.format(user.bells) + ' bells.')
+			.addField(greeting() + ', ' + disUser.username + '!', 'You currently have ' + format.format(user.bells) + ' bells.', false)
+			.setThumbnail(disUser.avatarURL())
+			.addFields(entryList)
+			.setTimestamp();
+	}
+
+	/* greeting
+	*
+	* output type: string
+	*
+	* Makes a personalized greeting message based on the time
+	*/
+	function greeting() {
+		if (new Date().getHours() > 5 && new Date().getHours() < 12) {
+			return "Good morning"
+		} else if (new Date().getHours() > 12 && new Date().getHours() < 18) {
+			return "Good Afternoon"
+		} else if (new Date().getHours() > 18 && new Date().getHours() < 20) {
+			return "Good Evening"
+		} else if (new Date().getHours() > 20 && new Date().getHours() < 23) {
+			return "Good Night"
+		} else {
+			return "Hello"
+		}
+	}
+
+	/* addFish
+	*
+	* input type: fish user, fish, message channel
+	* output type: array of user fish
+	*
+	* Manages the adding of fish to a user's inventory
+	*/
+	function addFish(user, fish, channel) {
+		if (user.fish[user.fish.length - 1].price != 0) {
+			channel.send("You don't have anymore space! The fish got away.");
+		} else {
+			for (i = 0; i < user.fish.length; i++) {
+				if (user.fish[i].price === 0) {
+					user.fish[i].name = fish.name;
+					user.fish[i].size = fish.size;
+					user.fish[i].price = fish.price;
+					i = user.fish.length;
+				}
+			}
+			channel.send(embed);
+		}
+		return user.fish;
 	}
 
 	/* fishSize
