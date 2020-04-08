@@ -12,8 +12,9 @@ const client = new Discord.Client();
 
 //Initialising variables
 const fish = require('./fish.json');
+const config = require('./config.json');
 const url = "mongodb://localhost:27017/";
-const prefix = '!';
+const prefix = config.prefix;
 
 var embed = new Discord.MessageEmbed()
 
@@ -127,5 +128,4 @@ MongoClient.connect(url, function (err, db) {
 		return ((Math.random() * (fish.size[0] - fish.size[1]) + fish.size[1]).toFixed(1));
 	}
 });
-//DO NOT FORGET TO REMOVE LOGIN CODE BEFORE UPLOAD
-client.login('MzgwNTA5NDcwMTgwMjQ1NTA1.Xo0X5Q.d0BJxuVHo-c35XLqrefKFUuK7zU');
+client.login(config.token);
