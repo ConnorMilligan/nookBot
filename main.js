@@ -97,45 +97,46 @@ MongoClient.connect(url, function (err, db) {
 				//Check reasons the user may not be able to fish
 				if (result.length === 0) {
 					message.channel.send("You can't go fishing yet! Go to the bank to be added to the database.");
-				} 
-				var dates = Math.floor((Math.abs(result[0].time - new Date()) / 1000) / 60);
-				if (dates < 60) {
-					message.channel.send("You can only go fishing once per hour! Wait another " + (60 - dates) + " minutes and try again.");
 				} else {
-					var fishRarity = getRarity();
-					var currentHour = new Date().getHours();
-					var currentMonth = new Date().getMonth();
+					var dates = Math.floor((Math.abs(result[0].time - new Date()) / 1000) / 60);
+					if (dates < 60) {
+						message.channel.send("You can only go fishing once per hour! Wait another " + (60 - dates) + " minutes and try again.");
+					} else {
+						var fishRarity = getRarity();
+						var currentHour = new Date().getHours();
+						var currentMonth = new Date().getMonth();
 
-					//Get a list of valid fish in the specified parameters
-					dbo.collection("fish").find({
-						rarity: fishRarity,
-						time: currentHour,
-						months: currentMonth
-					}).toArray(function (err, fishes) {
-						if (err) throw err;
+						//Get a list of valid fish in the specified parameters
+						dbo.collection("fish").find({
+							rarity: fishRarity,
+							time: currentHour,
+							months: currentMonth
+						}).toArray(function (err, fishes) {
+							if (err) throw err;
 
-						//Make sure the list has at least one fish in it
-						if (fishes.length === 0) {
-							message.channel.send("There's nothing biting!");
-						} else {
-							//Choose a random fish from the valid fish list, determine the size and build the embed
-							var caught = fishes[Math.floor(Math.random() * ((fishes.length - 1) - 0 + 1)) + 0];
-							caught.size = fishSize(caught);
-							buildFishEmbed(caught);
+							//Make sure the list has at least one fish in it
+							if (fishes.length === 0) {
+								message.channel.send("There's nothing biting!");
+							} else {
+								//Choose a random fish from the valid fish list, determine the size and build the embed
+								var caught = fishes[Math.floor(Math.random() * ((fishes.length - 1) - 0 + 1)) + 0];
+								caught.size = fishSize(caught);
+								buildFishEmbed(caught);
 
-							//Add updated fish array to the user in the database
-							dbo.collection("user").updateOne({
-								id: message.author.id
-							}, {
-								$set: {
-									fish: addFish(result[0], caught, message.channel),
-									time: new Date()
-								}
-							}, function (err, res) {
-								if (err) throw err;
-							});
-						}
-					});
+								//Add updated fish array to the user in the database
+								dbo.collection("user").updateOne({
+									id: message.author.id
+								}, {
+									$set: {
+										fish: addFish(result[0], caught, message.channel),
+										time: new Date()
+									}
+								}, function (err, res) {
+									if (err) throw err;
+								});
+							}
+						});
+					}
 				}
 			});
 		}
