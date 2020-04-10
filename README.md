@@ -1,8 +1,10 @@
-# Corpsebot
-A discord bot for moderating a collabrative comic game.
-
 # Fishbot
-A fishing game in discord.
+A fishing game in discord based on data from Animal Crossing New Horizons
+
+# Commands
+fish
+store
+bank
 
 # Dependancies
-Discord.js is the only requirement
+Discord.js and MongoDB
