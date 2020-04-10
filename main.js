@@ -94,12 +94,12 @@ MongoClient.connect(url, function (err, db) {
 			dbo.collection("user").find({
 				id: message.author.id
 			}).toArray(function (err, result) {
-				var dates = Math.floor((Math.abs(result[0].time - new Date()) / 1000) / 60);
-
 				//Check reasons the user may not be able to fish
 				if (result.length === 0) {
 					message.channel.send("You can't go fishing yet! Go to the bank to be added to the database.");
-				} else if (dates < 60) {
+				} 
+				var dates = Math.floor((Math.abs(result[0].time - new Date()) / 1000) / 60);
+				if (dates < 60) {
 					message.channel.send("You can only go fishing once per hour! Wait another " + (60 - dates) + " minutes and try again.");
 				} else {
 					var fishRarity = getRarity();
