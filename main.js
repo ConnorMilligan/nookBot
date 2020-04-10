@@ -56,12 +56,22 @@ MongoClient.connect(url, function (err, db) {
 			console.log("user collection initialized");
 		});
 
+		//Look for if there are more fish in the json and re-initialize the database if so
 		dbo.collection("fish").countDocuments().then(num => {
-			if (num === 0) {
-				dbo.collection("fish").insertMany(fish.fish, function (err, res) {
+			if (num < Object.keys(fish.fish).length) {
+				//Remove all entries from the fish database
+				dbo.collection("fish").deleteMany({
+					image: /^http/
+				}, function (err, obj) {
 					if (err) throw err;
-					console.log("Inserted " + res.insertedCount + " fish into the database!");
+					//Readd all the fish again
+					dbo.collection("fish").insertMany(fish.fish, function (err, res) {
+						if (err) throw err;
+						console.log((res.insertedCount - obj.result.n) + " new fish have been added into the database!");
+					});
 				});
+
+
 			} else {
 				console.log("fish database already up to date");
 			}
@@ -84,7 +94,9 @@ MongoClient.connect(url, function (err, db) {
 			dbo.collection("user").find({
 				id: message.author.id
 			}).toArray(function (err, result) {
-				var dates = Math.floor((Math.abs(result[0].time - new Date())/1000)/60);
+				var dates = Math.floor((Math.abs(result[0].time - new Date()) / 1000) / 60);
+
+				//Check reasons the user may not be able to fish
 				if (result.length === 0) {
 					message.channel.send("You can't go fishing yet! Go to the bank to be added to the database.");
 				} else if (dates < 60) {
@@ -94,26 +106,35 @@ MongoClient.connect(url, function (err, db) {
 					var currentHour = new Date().getHours();
 					var currentMonth = new Date().getMonth();
 
+					//Get a list of valid fish in the specified parameters
 					dbo.collection("fish").find({
 						rarity: fishRarity,
 						time: currentHour,
 						months: currentMonth
 					}).toArray(function (err, fishes) {
 						if (err) throw err;
-						var caught = fishes[0];
-						caught.size = fishSize(caught);
-						buildFishEmbed(caught);
 
-						dbo.collection("user").updateOne({
-							id: message.author.id
-						}, {
-							$set: {
-								fish: addFish(result[0], caught, message.channel),
-								time: new Date()
-							}
-						}, function (err, res) {
-							if (err) throw err;
-						});
+						//Make sure the list has at least one fish in it
+						if (fishes.length === 0) {
+							message.channel.send("There's nothing biting!");
+						} else {
+							//Choose a random fish from the valid fish list, determine the size and build the embed
+							var caught = fishes[Math.floor(Math.random() * ((fishes.length - 1) - 0 + 1)) + 0];
+							caught.size = fishSize(caught);
+							buildFishEmbed(caught);
+
+							//Add updated fish array to the user in the database
+							dbo.collection("user").updateOne({
+								id: message.author.id
+							}, {
+								$set: {
+									fish: addFish(result[0], caught, message.channel),
+									time: new Date()
+								}
+							}, function (err, res) {
+								if (err) throw err;
+							});
+						}
 					});
 				}
 			});
@@ -127,12 +148,12 @@ MongoClient.connect(url, function (err, db) {
 			dbo.collection("user").find({
 				id: message.author.id
 			}).toArray(function (err, result) {
-
+				//Check if the user exists in the database
 				if (result.length === 0) {
 					message.channel.send("It appears you aren't in the database. Let me add you now!");
 
+					//Create a new user based on the the message author
 					var fishList = makeEmptyFishList();
-
 					var myobj = {
 						name: message.author.username,
 						id: message.author.id,
@@ -142,12 +163,14 @@ MongoClient.connect(url, function (err, db) {
 						time: new Date('2020/1/1 00:00:00')
 					};
 
+					//Add the new user to the database
 					dbo.collection("user").insertOne(myobj, function (err, res) {
 						if (err) throw err;
 						console.log(myobj.name + " has been added to the database.");
 						message.channel.send("You are now in the database! Run the command again to see your menu.");
 					});
 				} else {
+					//Build and send the bank information
 					buildUserEmbed(result[0]);
 					message.channel.send(embed);
 				}
@@ -167,6 +190,7 @@ MongoClient.connect(url, function (err, db) {
 			dbo.collection("user").find({
 				id: message.author.id
 			}).toArray(function (err, result) {
+				//Check if the user is in the database and if there are any args to the command
 				if (result.length === 0) {
 					message.channel.send("You can't go to the store yet! Go to the bank to be added to the database.");
 				} else if (args.length === 0) {
@@ -177,11 +201,13 @@ MongoClient.connect(url, function (err, db) {
 							message.channel.send("Sorry, we're restocking at the moment. Please come back again soon!");
 							break;
 						case 'sell':
+							//Check if there is the correct number of args for this command
 							if (args.length === 1) {
 								message.channel.send("If you would like to sell something, use the command `" + config.prefix + "store sell n` where \'n\' is the number of what you want to sell according to you inventory in the bank.");
 							} else if (!(args.length > 1 && args.length <= 3)) {
 								message.channel.send("You have put in an incorrect number of args for this command.");
 							} else {
+								//Checks if the entered args are valid
 								if (isNaN(parseInt(args[1]))) {
 									message.channel.send("There was an issue with you parameter. Are you sure you are using a number?");
 								} else if (parseInt(args[1]) < 1 || parseInt(args[1]) > 9) {
@@ -189,13 +215,16 @@ MongoClient.connect(url, function (err, db) {
 								} else if (result[0].fish[parseInt(args[1]) - 1].price === 0) {
 									message.channel.send("You don't seem to have a fish in that slot.");
 								} else if (args.length === 2) {
+									//Send a sell information message based on the entered fish
 									buildShopEmbed(result[0].fish[parseInt(args[1]) - 1]);
 									message.channel.send(embed);
-
 								} else if (args.length === 3) {
+									//Checks if the user wishes to confirm the sale
 									if (args[2] === 'y') {
+										//A new user with the fish removed and bell count updated
 										var soldUser = sellFish(result[0], parseInt(args[1] - 1), message.channel);
 
+										//Update the fish list and bell count in the user database
 										dbo.collection("user").updateOne({
 											id: message.author.id
 										}, {
@@ -255,6 +284,8 @@ MongoClient.connect(url, function (err, db) {
 	 */
 	function buildUserEmbed(user) {
 		var entryList = [];
+
+		//Fill list of fields with the users fish
 		for (i = 0; i < 9; i++) {
 			entryList.push({
 				name: (i + 1) + '.',
@@ -348,9 +379,11 @@ MongoClient.connect(url, function (err, db) {
 	 * Manages the adding of fish to a user's inventory
 	 */
 	function addFish(user, fish, channel) {
+		//Confirms that there is enough space in the user's inventory
 		if (user.fish[user.fish.length - 1].price != 0) {
 			channel.send("You don't have anymore space! The fish got away.");
 		} else {
+			//Loops through the user's inventory and places a fish in the first empty space
 			for (i = 0; i < user.fish.length; i++) {
 				if (user.fish[i].price === 0) {
 					user.fish[i] = fish;
@@ -375,6 +408,7 @@ MongoClient.connect(url, function (err, db) {
 		var newUser = user;
 		var index = 0;
 
+		//Loop through the user's inventory and adds any fish to a new list
 		for (i = 0; i < user.fish.length; i++) {
 			if (user.fish[i].price != 0 && i != num) {
 				fish[index] = user.fish[i];
@@ -382,6 +416,7 @@ MongoClient.connect(url, function (err, db) {
 			}
 		}
 
+		//Builds the embed and updates the user with the new inventory and bell count
 		buildSoldEmbed(user, user.fish[num]);
 		channel.send(embed);
 		console.log('1 ' + user.fish[num].name + ' has been sold by ' + user.name + ' for ' + user.fish[num].price + ' bells');
@@ -406,16 +441,6 @@ MongoClient.connect(url, function (err, db) {
 			});
 		}
 		return fishList;
-	}
-
-	/* getFish
-	 *
-	 * output type: empty array of fish
-	 *
-	 * Creates an empty array of fish
-	 */
-	function getFish() {
-
 	}
 
 	/* getRarity
