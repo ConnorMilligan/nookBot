@@ -97,6 +97,20 @@ function buildUserEmbed(user) {
         .setTimestamp();
 }
 
+/* buildItemBreak
+ * 
+ * input type: item
+ * output type: Discord embed
+ * 
+ * Creates break message for the broken item
+ */
+function buildItemBreak(item) {
+    return new Discord.MessageEmbed().setTitle('Your ' + item.name + ' broke!')
+        .setDescription('Oh no! Thank you for your service, faithful ' + item.name + '...')
+        .setImage(item.image)
+        .setTimestamp();
+}
+
 /* buildStoreStockEmbed
  *
  * input type: user
@@ -111,7 +125,7 @@ function buildStoreStockEmbed(user) {
         entryList.push({
             name: (i + 1) + '. ' + items.items[i].name,
             value: format.format(items.items[i].price) + ' bells',
-            inline: true
+            inline: false
         });
     }
 
@@ -130,7 +144,7 @@ function buildStoreStockEmbed(user) {
  * Creates the sell prompt
  */
 function buildStoreBuyEmbed(item) {
-    return new Discord.MessageEmbed().setTitle('Buy a ' + critter.name + '?')
+    return new Discord.MessageEmbed().setTitle('Buy a ' + item.name + '?')
         .addField(`Would you like to buy a ` + item.name + ' for ' + format.format(item.price) + ' bells?',
             'Confirm your sale by adding \'y\' to your sell command.', false)
         .setImage(item.image)
@@ -162,6 +176,21 @@ function buildStoreSellEmbed(critter) {
             value: critter.rarity,
             inline: true
         }, )
+        .setTimestamp();
+}
+
+/* buildStoreBoughtEmbed
+ * 
+ * input type: user, tool
+ * output type: Discord embed
+ * 
+ * Creates the sold prompt for the inputed tool and user
+ */
+function buildStoreBoughtEmbed(user, boughtTool) {
+    return new Discord.MessageEmbed().setTitle('You bought a ' + boughtTool.name + '!')
+        .setDescription('You paid ' + format.format(boughtTool.price) + ' bells.')
+        .setThumbnail(user.image)
+        .setImage(boughtTool.image)
         .setTimestamp();
 }
 
@@ -199,7 +228,7 @@ function buildStoreSellAllEmbed(user, balance) {
  */
 function buildStoreSoldEmbed(user, critter) {
     return new Discord.MessageEmbed().setTitle('You sold your ' + critter.name + '!')
-        .setDescription('You were paid ' + critter.price + ' bells.')
+        .setDescription('You were paid ' + format.format(critter.price) + ' bells.')
         .setThumbnail(user.image)
         .setImage(critter.image)
         .addFields({
@@ -409,3 +438,5 @@ module.exports.makeEmptyCritterList = makeEmptyCritterList;
 module.exports.checkIfEmpty = checkIfEmpty;
 module.exports.getRarity = getRarity;
 module.exports.critterSize = critterSize;
+module.exports.buildStoreBoughtEmbed = buildStoreBoughtEmbed;
+module.exports.buildItemBreak = buildItemBreak;

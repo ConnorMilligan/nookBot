@@ -3,8 +3,43 @@
         "name": "Flimsy Fishing Rod",
         "image": "https://nookipedia.com/w/images/a/a1/Flimsy_Fishing_Rod_NH_Icon.png",
         "price": 400,
-        "multi": 2,
+        "time": 120,
         "duribility": 10
+    },
+    {
+        "name": "Fishing Rod",
+        "image": "https://nookipedia.com/w/images/9/94/Fishing_Rod_NH_Icon.png",
+        "price": 1000,
+        "time": 60,
+        "duribility": 15
+    },
+    {
+        "name": "Fine Fishing Rod",
+        "image": "https://nookipedia.com/w/images/c/c6/Golden_Fishing_Rod_NH_Icon.png",
+        "price": 1500,
+        "time": 30,
+        "duribility": 20
+    },
+    {
+        "name": "Flimsy Net",
+        "image": "https://nookipedia.com/w/images/9/91/Flimsy_Net_NH_Icon.png",
+        "price": 400,
+        "time": 120,
+        "duribility": 10
+    },
+    {
+        "name": "Net",
+        "image": "https://nookipedia.com/w/images/1/14/Net_NH_Icon.png",
+        "price": 1000,
+        "time": 60,
+        "duribility": 15
+    },
+    {
+        "name": "Fine Net",
+        "image": "https://nookipedia.com/w/images/b/b5/Golden_Net_NH_Icon.png",
+        "price": 1500,
+        "time": 30,
+        "duribility": 20
     }
     ]
 }

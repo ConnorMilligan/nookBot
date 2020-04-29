@@ -13,6 +13,13 @@ const nookDB = require("../nookDB.js");
 const nookToolkit = require("../nookToolkit.js");
 const { debug } = require('../config.json');
 
+//Empty item
+const emptyItem = {
+    name: "None",
+    price: 0,
+    time: 120
+}
+
 //Fish command
 module.exports = {
     name: 'fish',
@@ -27,13 +34,15 @@ module.exports = {
             if (userList.length === 0) {
                 message.channel.send("You can't go fishing yet! Go to the bank to be added to the database.");
             } else {
+                var user = userList[0];
                 //Checks if the user is able to fish and if debug mode is enabled
-                var dates = Math.floor((Math.abs(userList[0].time - new Date()) / 1000) / 60);
-                if (dates < 60 && !debug) {
-                    message.channel.send("You can only go fishing once per hour! Wait another " + (60 - dates) + " minutes and try again.");
+                var dates = Math.floor((Math.abs(user.time - new Date()) / 1000) / 60);
+                if (user.fishingrod.price === 0) {
+                    message.channel.send("How do you expect to go fishing without a fishingrod!");
+                } else if (dates < user.fishingrod.time && !debug) {
+                    message.channel.send("You need to wait before fishing again! Wait another " + (user.fishingrod.time - dates) + " minutes and try again.");
                 } else {
                     //Determine currently catchable fish
-                    var user = userList[0];
                     var fishRarity = nookToolkit.getRarity();
                     var currentHour = new Date().getHours();
                     var currentMonth = new Date().getMonth();
@@ -53,7 +62,15 @@ module.exports = {
 
                             //Adds the caught fish to the critter list and reset the time
                             user.critters = nookToolkit.addCritter(user, caught, message.channel);
+                            user.fishingrod.duribility--;
                             user.time = new Date();
+
+                            //Check the durability of the rod and remove if broken
+                            if (user.fishingrod.duribility < 1) {
+                                var broken = nookToolkit.buildItemBreak(user.fishingrod);
+                                user.fishingrod = emptyItem;
+                                console.log(user.name + ' has broken their ' + user.fishingrod.name + ' while fishing');
+                            }
 
                             //updates the database with the new user
                             async function result() {
@@ -62,12 +79,16 @@ module.exports = {
                             result().then(function (state) {
                                 if (state) {
                                     message.channel.send(nookToolkit.buildCritterEmbed(caught));
-                                    console.log('1 ' + caught.name + ' has been added to ' + user.name + '\'s bank');
+                                    if (user.fishingrod.price === 0) {
+                                        message.channel.send(broken);
+                                    }
                                 } else {
                                     message.channel.send("Sorry, there was an issue while fishing.");
                                     console.log(caught.name + ' was unable to be added to ' + user.name + '\'s bank');
                                 }
                             });
+
+                            
                         }
                     });
                 }

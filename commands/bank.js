@@ -17,6 +17,7 @@ const nookToolkit = require("../nookToolkit.js");
 const emptyItem = {
     name: "None",
     price: 0,
+    time: 120
 }
 
 //Bank command
@@ -52,10 +53,8 @@ module.exports = {
                 addUser().then(function (state) {
                     if (state) {
                         message.channel.send("You are now in the database! Run the command again to see your menu.");
-                        console.log(newUser.name + " was added to the user database");
                     } else {
                         message.channel.send("There was some kind of issue when adding you to the database.");
-                        console.log(newUser.name + " was unavle to be added to the user database");
                     }
                 });
             } else {

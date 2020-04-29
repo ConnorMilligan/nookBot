@@ -207,10 +207,40 @@ client.connect(function (err) {
         return await fish();
     }
 
+    /* getBugs
+     * 
+     * input type: rarity, hour, month
+     * output type: list of bugs
+     * 
+     * Returns a list off possible bugs to be caught based on the parameters
+     */
+    async function getBugs(rarity, currentHour, currentMonth) {
+        var bug = () => {
+            return new Promise((resolve, reject) => {
+                dbo.collection("bug").find({
+                    rarity: rarity,
+                    time: currentHour,
+                    months: currentMonth
+                }).toArray(function (err, data) {
+                    if (err) {
+                        console.log("There was an error fetching bugs.");
+                        reject([]);
+                    } else {
+                        console.log("List of bugs found.");
+                        resolve(data);
+                    }
+                });
+            });
+
+        }
+        return await bug();
+    }
+
 
     module.exports.initialize = initialize;
     module.exports.getUser = getUser;
     module.exports.addUser = addUser;
     module.exports.updateUser = updateUser;
     module.exports.getFish = getFish;
+    module.exports.getBugs = getBugs;
 });

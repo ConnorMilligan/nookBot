@@ -11,7 +11,9 @@
 //Dependancies
 const nookDB = require("../nookDB.js");
 const nookToolkit = require("../nookToolkit.js");
-const { prefix } = require('../config.json');
+const {
+    prefix
+} = require('../config.json');
 const items = require('../data/items.json');
 
 //Store command
@@ -40,15 +42,44 @@ module.exports = {
                         if (args.length === 1) {
                             message.channel.send(nookToolkit.buildStoreStockEmbed(user));
                             message.channel.send("If you would like to buy something, use the command `" + prefix + "store buy n` where \'n\' is the number of the item you would like to buy.");
-                        } else if (args.length === 2) {
+                        } else if (args.length < 5) {
                             //ensure that the entered arg is a number
-                            if (isNaN(parseInt(args[1]))) {
+                            if (!isNaN(parseInt(args[1]))) {
                                 //confirms that the entered number is in range
-                                if (parseInt(args[1]) < 1 && parseInt(args[1]) > items.items.length) {
+                                if (parseInt(args[1]) < 1 || parseInt(args[1]) > items.items.length) {
                                     message.channel.send("The number you put in is out of range!");
                                 } else {
-                                    buildStoreBuyEmbed(items.items[parseInt(args[1])]);
-                                    message.channel.send(embed);
+                                    var boughtTool = items.items[parseInt(args[1]) - 1];
+                                    if (args.length === 3 && args[2] === 'y') {
+                                        if ((user.bells - boughtTool.price) > 0) {
+                                            //Update the critter list and bell count in the user database
+                                            user.bells -= boughtTool.price;
+                                            if (boughtTool.name.includes('Rod')) {
+                                                user.fishingrod = boughtTool;
+                                            } else {
+                                                user.bugnet = boughtTool;
+                                            }
+
+                                            //Updates the database with the new user
+                                            async function result() {
+                                                return await nookDB.updateUser(user);
+                                            }
+                                            result().then(function (state) {
+                                                if (state) {
+                                                    message.channel.send(nookToolkit.buildStoreBoughtEmbed(user, boughtTool));
+                                                    console.log(user.name + ' has bought a ' + boughtTool.name + ' for ' + boughtTool.price + ' bells');
+                                                } else {
+                                                    message.channel.send("Sorry, there was a problem trying to buy a " + boughtTool.name);
+                                                    console.log(user.name + " was unable to buy a " + boughtTool.name);
+                                                }
+                                            });
+                                        } else {
+                                            message.channel.send("You don't have enough bells to buy this!");
+                                        }
+
+                                    } else {
+                                        message.channel.send(nookToolkit.buildStoreBuyEmbed(boughtTool));
+                                    }
                                 }
                             } else {
                                 message.channel.send("There was an issue with you parameter. Are you sure you are using a number?");
