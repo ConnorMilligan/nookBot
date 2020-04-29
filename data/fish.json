@@ -583,7 +583,7 @@
             "name": "Sea Bass",
             "image": "https://nookipedia.com/w/images/7/7f/Sea_Bass_NH_Icon.png",
             "catch": "I caught a sea bass! No, wait-it's at least a C+!",
-            "rarity": "Very common",
+            "rarity": "Very Common",
             "price": 400,
             "size": [90, 110],
             "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],

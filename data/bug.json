@@ -1,0 +1,793 @@
+{
+    "bug": [{
+            "name": "Common Butterfly",
+            "image": "https://nookipedia.com/w/images/f/f8/Common_Butterfly_NH_Icon.png",
+            "catch": "I caught a common butterfly! They often flutter by!",
+            "rarity": "Common",
+            "price": 160,
+            "size": [48, 52],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [1, 2, 3, 4, 5, 6, 9, 10, 11, 12]
+        },
+        {
+            "name": "Yellow Butterfly",
+            "image": "https://nookipedia.com/w/images/4/43/Yellow_Butterfly_NH_Icon.png",
+            "catch": "I caught a yellow butterfly! Shouldn't all BUTTERflies be yellow?",
+            "rarity": "Very Common",
+            "price": 160,
+            "size": [48, 52],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [3, 4, 5, 6, 9, 10]
+        },
+        {
+            "name": "Tiger Butterfly",
+            "image": "https://nookipedia.com/w/images/b/b6/Tiger_Butterfly_NH_Icon.png",
+            "catch": "I caught a tiger butterfly! I've earned my stripes!",
+            "rarity": "Common",
+            "price": 240,
+            "size": [88, 92],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [3, 4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Peacock Butterfly",
+            "image": "https://nookipedia.com/w/images/7/77/Peacock_Butterfly_NH_Icon.png",
+            "catch": "I caught a peacock butterfly! Now it's my turn to strut my stuff!",
+            "rarity": "Rare",
+            "price": 2500,
+            "size": [95, 110],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [3, 4, 5, 6]
+        },
+        {
+            "name": "Common Bluebottle",
+            "image": "https://nookipedia.com/w/images/2/21/Common_Bluebottle_NH_Icon.png",
+            "catch": "I caught a common bluebottle! I'll put it in a rare green jar!",
+            "rarity": "Very Common",
+            "price": 300,
+            "size": [48, 52],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [4, 5, 6, 7, 8]
+        },
+        {
+            "name": "Paper Kite Butterfly",
+            "image": "https://nookipedia.com/w/images/9/9e/Paper_Kite_Butterfly_NH_Icon.png",
+            "catch": "I caught a paper kite butterfly! Do I read it, fly it, or spread it on toast?",
+            "rarity": "Uncommon",
+            "price": 1000,
+            "size": [95, 110],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Agrias Butterfly",
+            "image": "https://nookipedia.com/w/images/6/60/Agrias_Butterfly_NH_Icon.png",
+            "catch": "I caught an agrias butterfly! I wonder if it finds me disagrias-able?",
+            "rarity": "Rare",
+            "price": 3000,
+            "size": [40, 45],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Rajah Brooke's Birdwing",
+            "image": "https://nookipedia.com/w/images/8/81/Rajah_Brooke%27s_Birdwing_NH_Icon.png",
+            "catch": "I caught a Raja Brooke's birdwing! Nothing else I'd rajah be doing!",
+            "rarity": "Uncommon",
+            "price": 2500,
+            "size": [135,150],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [1, 2, 4, 5, 6, 7, 8, 9, 12]
+        },
+        {
+            "name": "Moth",
+            "image": "https://nookipedia.com/w/images/a/a0/Moth_NH_Icon.png",
+            "catch": "I caught a moth! And I had a ball doing it!",
+            "rarity": "Common",
+            "price": 130,
+            "size": [55, 65],
+            "time": [0, 1, 2, 3, 4, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Atlas Moth",
+            "image": "https://nookipedia.com/w/images/7/7f/Atlas_Moth_NH_Icon.png",
+            "catch": "I caught an Atlas moth! I bet it never gets lost!",
+            "rarity": "Rare",
+            "price": 3000,
+            "size": [250, 260],
+            "time": [0, 1, 2, 3, 4, 19, 20, 21, 22, 23],
+            "months": [4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Long Locust",
+            "image": "https://nookipedia.com/w/images/9/9d/Long_Locust_NH_Icon.png",
+            "catch": "I caught a long locust! Or, as I call it, a looooocust.",
+            "rarity": "Common",
+            "price": 200,
+            "size": [73,75],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [4, 5, 6, 7, 8, 9, 10, 11]
+        },
+        {
+            "name": "Mantis",
+            "image": "https://nookipedia.com/w/images/4/4e/Mantis_NH_Icon.png",
+            "catch": "I caught a mantis! Man, 'tis so cool!",
+            "rarity": "Uncommon",
+            "price": 430,
+            "size": [82, 88],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [3, 4, 5, 6, 7, 8, 9, 10, 11]
+        },
+        {
+            "name": "Orchid Mantis",
+            "image": "https://nookipedia.com/w/images/a/a7/Orchid_Mantis_NH_Icon.png",
+            "catch": "I caught an orchid mantis! Our friendship is blooming!",
+            "rarity": "Rare",
+            "price": 2400,
+            "size": [35, 40],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [3, 4, 5, 6, 7, 8, 9, 10, 11]
+        },
+        {
+            "name": "Honeybee",
+            "image": "https://nookipedia.com/w/images/5/51/Honeybee_NH_Icon.png",
+            "catch": "I caught a honeybee! Ah, sweet success!",
+            "rarity": "Very Common",
+            "price": 200,
+            "size": [13, 14],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [3, 4, 5, 6, 7]
+        },
+        {
+            "name": "Wasp",
+            "image": "https://nookipedia.com/w/images/a/a5/Wasp_NH_Icon.png",
+            "catch": "I caught a wasp! That's gotta sting...",
+            "rarity": "Common",
+            "price": 2500,
+            "size": [14, 16],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Darner Dragonfly",
+            "image": "https://nookipedia.com/w/images/5/5c/Darner_Dragonfly_NH_Icon.png",
+            "catch": "I caught a darner dragonfly! It better watch its mouth!",
+            "rarity": "Common",
+            "price": 230,
+            "size": [76, 80],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Banded Dragonfly",
+            "image": "https://nookipedia.com/w/images/3/35/Banded_Dragonfly_NH_Icon.png",
+            "catch": "I did it! I caught a banded dragonfly! Now to find the rest of its band!",
+            "rarity": "Rare",
+            "price": 4500,
+            "size": [90, 95],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        {
+            "name": "Mole Cricket",
+            "image": "https://nookipedia.com/w/images/4/4f/Mole_Cricket_NH_Icon.png",
+            "catch": "I caught a mole cricket! I really dig it!",
+            "rarity": "Common",
+            "price": 500,
+            "size": [35, 40],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 11, 12]
+        },
+        {
+            "name": "Giant Water Bug",
+            "image": "https://nookipedia.com/w/images/8/86/Giant_Water_Bug_NH_Icon.png",
+            "catch": "I caught a giant water bug! It should've stayed in the water!",
+            "rarity": "Rare",
+            "price": 2000,
+            "size": [80, 95],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Stinkbug",
+            "image": "https://nookipedia.com/w/images/4/42/Stinkbug_NH_Icon.png",
+            "catch": "I caught a stinkbug! It lives up to its name!",
+            "rarity": "Common",
+            "price": 120,
+            "size": [12, 16],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        {
+            "name": "Man-Faced Stink Bug",
+            "image": "https://nookipedia.com/w/images/4/4e/Man-Faced_Stinkbug_NH_Icon.png",
+            "catch": "I caught a man-faced stink bug! Reminds me of my uncle!",
+            "rarity": "Uncommon",
+            "price": 1000,
+            "size": [20, 35],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 20, 21, 22, 23],
+            "months": [3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        {
+            "name": "Tiger Beetle",
+            "image": "https://nookipedia.com/w/images/5/58/Tiger_Beetle_NH_Icon.png",
+            "catch": "I caught a tiger beetle! I pounced first!",
+            "rarity": "Common",
+            "price": 1500,
+            "size": [18,22],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        {
+            "name": "Jewel Beetle",
+            "image": "https://nookipedia.com/w/images/4/43/Jewel_Beetle_NH_Icon.png",
+            "catch": "I caught a jewel beetle! It's a real gem!",
+            "rarity": "Rare",
+            "price": 2400,
+            "size": [35, 40],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [4, 5, 6, 7, 8]
+        },
+        {
+            "name": "Citrus Long-Horned Beetle",
+            "image": "https://nookipedia.com/wiki/Bugs/New_Horizons",
+            "catch": "I caught a citrus long-horned beetle! Orange you happy for me?",
+            "rarity": "Common",
+            "price": 350,
+            "size": [25, 35],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 23],
+            "months": [9, 10, 11, 12]
+        },
+        {
+            "name": "Bagworm",
+            "image": "https://nookipedia.com/w/images/1/17/Bagworm_NH_Icon.png",
+            "catch": "I caught a bagworm! Guess I'm a bragworm!",
+            "rarity": "Common",
+            "price": 600,
+            "size": [40, 50],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Ant",
+            "image": "https://nookipedia.com/w/images/5/5d/Ant_NH_Icon.png",
+            "catch": "I caught an ant! TELL ME WHERE THE QUEEN IS!",
+            "rarity": "Common",
+            "price": 80,
+            "size": [5, 6],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Hermit Crab",
+            "image": "https://nookipedia.com/w/images/6/6b/Hermit_Crab_NH_Icon.png",
+            "catch": "I caught a hermit crab! I think it wanted to be left alone!",
+            "rarity": "Uncommon",
+            "price": 1000,
+            "size": [33, 45],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Wharf Roach",
+            "image": "https://nookipedia.com/w/images/1/1f/Wharf_Roach_NH_Icon.png",
+            "catch": "I caught a wharf roach! This water-loving roach has no pier!",
+            "rarity": "Uncommon",
+            "price": 200,
+            "size": [40, 55],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Fly",
+            "image": "https://nookipedia.com/w/images/1/15/Fly_NH_Icon.png",
+            "catch": "I caught a fly! I was just wingin' it...",
+            "rarity": "Rare",
+            "price": 80,
+            "size": [3, 5],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Flea",
+            "image": "https://nookipedia.com/w/images/8/89/Flea_NH_Icon.png",
+            "catch": "I caught a flea! The curse is lifted.",
+            "rarity": "Rare",
+            "price": 70,
+            "size": [2, 3],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [4, 5, 6, 7, 8, 9, 10, 11]
+        },
+        {
+            "name": "Snail",
+            "image": "https://nookipedia.com/w/images/e/e9/Snail_NH_Icon.png",
+            "catch": "I caught a snail! It's...not much to brag about.",
+            "rarity": "Very Common",
+            "price": 250,
+            "size": [45, 65],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Pill Bug",
+            "image": "https://nookipedia.com/w/images/b/b9/Pill_Bug_NH_Icon.png",
+            "catch": "I caught a pill bug! That's a tough act to swallow!",
+            "rarity": "Common",
+            "price": 250,
+            "size": [2, 3],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Centipede",
+            "image": "https://nookipedia.com/w/images/d/d2/Centipede_NH_Icon.png",
+            "catch": "I caught a centipede! 99 more and I'll have a dollarpede!",
+            "rarity": "Rare",
+            "price": 300,
+            "size": [65, 100],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Spider",
+            "image": "https://nookipedia.com/w/images/e/e0/Spider_NH_Icon.png",
+            "catch": "I caught a spider! I spied 'er first!",
+            "rarity": "Common",
+            "price": 600,
+            "size": [25, 35],
+            "time": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "Tarantula",
+            "image": "https://nookipedia.com/w/images/b/b5/Tarantula_NH_Icon.png",
+            "catch": "I caught a tarantula! This situation just got hairy!",
+            "rarity": "Rare",
+            "price": 8000,
+            "size": [65],
+            "time": [0, 1, 2, 3, 4, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 4, 11, 12]
+        },
+        {
+            "name": "Scorpion",
+            "image": "https://nookipedia.com/w/images/9/95/Scorpion_NH_Icon.png",
+            "catch": "I caught a scorpion! Not so fast now, are ya?!",
+            "rarity": "Rare",
+            "price": 8000,
+            "size": [10, 13],
+            "time": [0, 1, 2, 3, 4, 19, 20, 21, 22, 23],
+            "months": [5, 6, 7, 8, 9, 10]
+        },
+        {
+            "name": "Great Purple Emperor",
+            "image": "https://nookipedia.com/w/images/8/81/Great_Purple_Emperor_NH_Icon.png",
+            "catch": "I caught a great purple emperor! Its purple reign is over now!",
+            "rarity": "Rare",
+            "price": 3000,
+            "size": [50,65],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [5, 6, 7, 8]
+        },
+        {
+            "name": "Monarch Butterfly",
+            "image": "https://nookipedia.com/w/images/3/38/Monarch_Butterfly_NH_Icon.png",
+            "catch": "I caught a monarch butterfly! Guess the butterflies are a democracy now!",
+            "rarity": "Very Common",
+            "price": 140,
+            "size": [85, 100],
+            "time": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [5, 6, 7, 8]
+        },
+        {
+            "name": "Emperor Butterfly",
+            "image": "https://nookipedia.com/w/images/c/cf/Emperor_Butterfly_NH_Icon.png",
+            "catch": "I caught an emperor butterfly! It's not your average monarch!",
+            "rarity": "Rare",
+            "price": 4000,
+            "size": [90, 125],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [1, 2, 3, 6, 7, 8, 9, 12]
+        },
+        {
+            "name": "Queen Alexandra's Birdwing",
+            "image": "https://nookipedia.com/w/images/b/bb/Queen_Alexandra%27s_Birdwing_NH_Icon.png",
+            "catch": "I caught a birdwing butterfly! That's a feather in my cap!",
+            "rarity": "Rare",
+            "price": 4000,
+            "size": [260, 310],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "months": [5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Madagascan Sunset Moth",
+            "image": "https://nookipedia.com/w/images/6/69/Madagascan_Sunset_Moth_NH_Icon.png",
+            "catch": "I caught a Madagascan sunset moth! Wow, you're not from around here!",
+            "rarity": "Uncommon",
+            "price": 2500,
+            "size": [70, 90],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "months": [4, 5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Migratory Locust",
+            "image": "https://nookipedia.com/w/images/d/d0/Migratory_Locust_NH_Icon.png",
+            "catch": "I caught a migratory locust! It migrated to a good spot!",
+            "rarity": "Uncommon",
+            "price": 600,
+            "size": [50, 70],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [8, 9, 10, 11]
+        },
+        {
+            "name": "Migratory Locust",
+            "image": "https://nookipedia.com/w/images/7/78/Rice_Grasshopper_NH_Icon.png",
+            "catch": "I caught a rice grasshopper! Now I just need a soy-sauce mantis!",
+            "rarity": "Common",
+            "price": 160,
+            "size": [20,35],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [8, 9, 10, 11]
+        },
+        {
+            "name": "Grasshopper",
+            "image": "https://nookipedia.com/w/images/3/37/Grasshopper_NH_Icon.png",
+            "catch": "I caught a grasshopper! Seems it's hopped its last!",
+            "rarity": "Common",
+            "price": 160,
+            "size": [35, 50],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [7, 8, 9]
+        },
+        {
+            "name": "Cricket",
+            "image": "https://nookipedia.com/w/images/8/8f/Cricket_NH_Icon.png",
+            "catch": "I caught a cricket! That's a sticky wicket, isn't it?",
+            "rarity": "Common",
+            "price": 130,
+            "size": [35, 50],
+            "time": [17, 18, 19, 20, 21, 22, 23, 1, 2, 3, 4, 5, 6, 7, 8],
+            "months": [9, 10, 11]
+        },
+        {
+            "name": "Bell Cricket",
+            "image": "https://nookipedia.com/w/images/4/4a/Bell_Cricket_NH_Icon.png",
+            "catch": "I caught a bell cricket! Odd, it doesn't look like money...",
+            "rarity": "Common",
+            "price": 430,
+            "size": [10, 25],
+            "time": [17, 18, 19, 20, 21, 22, 23, 1, 2, 3, 4, 5, 6, 7, 8],
+            "months": [9, 10]
+        },
+        {
+            "name": "Brown Cicada",
+            "image": "https://nookipedia.com/w/images/4/44/Brown_Cicada_NH_Icon.png",
+            "catch": "I caught a brown cicada! Now it probably feels blue, cicada.",
+            "rarity": "Very Common",
+            "price": 250,
+            "size": [40, 70],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [7, 8]
+        },
+        {
+            "name": "Robust Cicada",
+            "image": "https://nookipedia.com/w/images/a/a2/Robust_Cicada_NH_Icon.png",
+            "catch": "I caught a robust cicada! It seems pretty lively to me!",
+            "rarity": "Common",
+            "price": 300,
+            "size": [40, 70],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [7, 8]
+        },
+        {
+            "name": "Walker Cicada",
+            "image": "https://nookipedia.com/w/images/f/f8/Walker_Cicada_NH_Icon.png",
+            "catch": "I caught a walker cicada! I'm the one walkin' the walk now!",
+            "rarity": "Very Common",
+            "price": 300,
+            "size": [40, 60],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [7, 8]
+        },
+        {
+            "name": "Giant Cicada",
+            "image": "https://nookipedia.com/w/images/e/e3/Giant_Cicada_NH_Icon.png",
+            "catch": "I caught a giant cicada! Luckily I didn't need a bean stalk!",
+            "rarity": "Uncommon",
+            "price": 500,
+            "size": [60, 80],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [7, 8]
+        },
+        {
+            "name": "Evening Cicada",
+            "image": "https://nookipedia.com/w/images/b/ba/Evening_Cicada_NH_Icon.png",
+            "catch": "I caught an evening cicada! It just wasn't its night!",
+            "rarity": "Common",
+            "price": 500,
+            "size": [30, 50],
+            "time": [4, 5, 6, 7, 8, 16, 17, 18, 19],
+            "months": [7, 8]
+        },
+        {
+            "name": "Cicada Shell",
+            "image": "https://nookipedia.com/w/images/d/d1/Cicada_Shell_NH_Icon.png",
+            "catch": "I found a cicada shell! I'm glad the little guy came out of it!",
+            "rarity": "Common",
+            "price": 10,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+        {
+            "name": "Red Dragonfly",
+            "image": "https://nookipedia.com/w/images/0/09/Red_Dragonfly_NH_Icon.png",
+            "catch": "I caught a red dragonfly! Wonder if it breathes fire...",
+            "rarity": "Common",
+            "price": 80,
+            "size": [30, 50],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [9, 10]
+        },
+        {
+            "name": "Damselfly",
+            "image": "https://nookipedia.com/w/images/c/c8/Damselfly_NH_Icon.png",
+            "catch": "I caught a damselfly! Now it's a damselfly in distress!",
+            "rarity": "Common",
+            "price": 500,
+            "size": [10, 30],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [1, 2, 11, 12]
+        },
+        {
+            "name": "Firefly",
+            "image": "https://nookipedia.com/w/images/d/d6/Firefly_NH_Icon.png",
+            "catch": "I caught a firefly! Now I don't need a flashlight!",
+            "rarity": "Very Common",
+            "price": 300,
+            "size": [10, 20],
+            "time": [19, 20, 21, 22, 23, 1, 2, 3, 4, 5, 6, 7, 8],
+            "months": [6]
+        },
+        {
+            "name": "Pondskater",
+            "image": "https://nookipedia.com/w/images/1/1f/Pondskater_NH_Icon.png",
+            "catch": "I caught a pond skater! Why aren't they called pondskiers?",
+            "rarity": "Very Common",
+            "price": 130,
+            "size": [10, 20],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "months": [5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Diving Beetle",
+            "image": "https://nookipedia.com/w/images/7/78/Diving_Beetle_NH_Icon.png",
+            "catch": "I caught a diving beetle! I give it a perfect 10!",
+            "rarity": "Uncommon",
+            "price": 800,
+            "size": [30, 50],
+            "time": [19, 20, 21, 22, 23, 1, 2, 3, 4, 5, 6, 7, 8],
+            "months": [5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Ladybug",
+            "image": "https://nookipedia.com/w/images/0/08/Ladybug_NH_Icon.png",
+            "catch": "I caught a ladybug! Sorry to disturb you, ma'am!",
+            "rarity": "Common",
+            "price": 200,
+            "size": [8, 15],
+            "time": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "months": [3, 4, 5, 6, 8]
+        },
+        {
+            "name": "Violin Beetle",
+            "image": "https://nookipedia.com/w/images/8/86/Violin_Beetle_NH_Icon.png",
+            "catch": "I caught a violin beetle! But how do I tune it?",
+            "rarity": "Uncommon",
+            "price": 450,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [4, 5, 9, 10, 11]
+        },
+        {
+            "name": "Rosalia Batesi Beetle",
+            "image": "https://nookipedia.com/w/images/7/7c/Rosalia_Batesi_Beetle_NH_Icon.png",
+            "catch": "I caught a rosalia batesi beetle! That's easier to do than say!",
+            "rarity": "Uncommon",
+            "price": 3000,
+            "size": [50, 60],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [5, 6, 7, 8, 9]
+        },
+        {
+            "name": "Blue Weevil Beetle",
+            "image": "https://nookipedia.com/w/images/2/20/Blue_Weevil_Beetle_NH_Icon.png",
+            "catch": "I caught a blue weevil beetle! It's the lesser of blue weevils!",
+            "rarity": "Common",
+            "price": 800,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+        {
+            "name": "Dung Beetle",
+            "image": "https://nookipedia.com/w/images/c/c4/Dung_Beetle_NH_Icon.png",
+            "catch": "I caught a dung beetle! Nah, the joke's just too easy.",
+            "rarity": "Uncommon",
+            "price": 3000,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [1, 2, 12]
+        },
+        {
+            "name": "Earth-Boring Dung Beetle",
+            "image": "https://nookipedia.com/w/images/5/53/Earth-Boring_Dung_Beetle_NH_Icon.png",
+            "catch": "I caught an earth-boring dung beetle! It's not boring at all!",
+            "rarity": "Common",
+            "price": 300,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+        {
+            "name": "Scarab Beetle",
+            "image": "https://nookipedia.com/w/images/e/ee/Scarab_Beetle_NH_Icon.png",
+            "catch": "I caught a scarab beetle! Pfff. I've seen scarier!",
+            "rarity": "Rare",
+            "price": 10000,
+            "size": [30, 50],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Drone Beetle",
+            "image": "https://nookipedia.com/w/images/4/48/Drone_Beetle_NH_Icon.png",
+            "catch": "I caught a drone beetle! Shouldn't you have more propellers?",
+            "rarity": "Common",
+            "price": 200,
+            "size": [10, 20],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Saw Stag",
+            "image": "https://nookipedia.com/w/images/0/03/Saw_Stag_NH_Icon.png",
+            "catch": "I caught a saw stag! Is carpentry big in the bug world?",
+            "rarity": "Uncommon",
+            "price": 2000,
+            "size": [50, 70],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Miyama Stag",
+            "image": "https://nookipedia.com/w/images/0/0a/Miyama_Stag_NH_Icon.png",
+            "catch": "I caught a miyama stag! Glad I overcame my stag fright!",
+            "rarity": "Common",
+            "price": 1000,
+            "size": [50, 70],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Goliath Beetle",
+            "image": "https://nookipedia.com/w/images/3/3e/Goliath_Beetle_NH_Icon.png",
+            "catch": "I caught a goliath beetle! Hah! He doesn't look so big.",
+            "rarity": "Rare",
+            "price": 6000,
+            "size": [90, 110],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Giant Stag",
+            "image": "https://nookipedia.com/w/images/0/08/Giant_Stag_NH_Icon.png",
+            "catch": "Whoa! I caught a giant stag! Small world, isn't it?",
+            "rarity": "Rare",
+            "price": 10000,
+            "size": [60, 80],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Rainbow Stag",
+            "image": "https://nookipedia.com/w/images/f/f7/Rainbow_Stag_NH_Icon.png",
+            "catch": "I caught a rainbow stag! Aren't you a colorful bug!",
+            "rarity": "Rare",
+            "price": 6000,
+            "size": [60, 90],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [6, 7, 8, 9]
+        },
+		{
+            "name": "Cyclommatus Stag",
+            "image": "https://nookipedia.com/w/images/a/a0/Cyclommatus_Stag_NH_Icon.png",
+            "catch": "I caught a cyclommatus stag! Need some tweezers?",
+            "rarity": "Rare",
+            "price": 8000,
+            "size": [90, 120],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Golden Stag",
+            "image": "https://nookipedia.com/w/images/b/ba/Golden_Stag_NH_Icon.png",
+            "catch": "Whoa! I caught a golden stag! Better not spend it all at one place!",
+            "rarity": "Rare",
+            "price": 12000,
+            "size": [80, 90],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Horned Dynastid",
+            "image": "https://nookipedia.com/w/images/1/10/Horned_Dynastid_NH_Icon.png",
+            "catch": "I caught a horned dynastid! Your era just ended, buddy!",
+            "rarity": "Common",
+            "price": 1350,
+            "size": [70, 85],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Horned Atlas",
+            "image": "https://nookipedia.com/w/images/2/2a/Horned_Atlas_NH_Icon.png",
+            "catch": "I caught a horned atlas! It's like a weight has been lifted!",
+            "rarity": "Uncommon",
+            "price": 8000,
+            "size": [100, 130],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Horned Elephant",
+            "image": "https://nookipedia.com/w/images/e/ea/Horned_Elephant_NH_Icon.png",
+            "catch": "I caught a horned elephant! Did it get lost from the herd?",
+            "rarity": "Uncommon",
+            "price": 8000,
+            "size": [100, 130],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Horned Hercules",
+            "image": "https://nookipedia.com/w/images/2/21/Horned_Hercules_NH_Icon.png",
+            "catch": "I caught a horned hercules! Who's the mighty one now?",
+            "rarity": "Rare",
+            "price": 12000,
+            "size": [100, 160],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23],
+            "months": [7, 8]
+        },
+		{
+            "name": "Walking Stick",
+            "image": "https://nookipedia.com/w/images/5/58/Walking_Stick_NH_Icon.png",
+            "catch": "I caught a walking stick! Check out its walking schtick!",
+            "rarity": "Rare",
+            "price": 600,
+            "size": [70, 90],
+            "time": [4, 5, 6, 7, 8, 17, 18, 19],
+            "months": [7, 8, 9, 10, 11]
+        },
+		{
+            "name": "Walking Leaf",
+            "image": "https://nookipedia.com/w/images/b/b9/Walking_Leaf_NH_Icon.png",
+            "catch": "I caught a walking leaf! I'm glad it can't run!",
+            "rarity": "Uncommon",
+            "price": 600,
+            "size": [70, 90],
+            "time": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "months": [7, 8, 9]
+        },
+		{
+            "name": "Mosquito",
+            "image": "https://nookipedia.com/w/images/8/84/Mosquito_NH_Icon.png",
+            "catch": "I caught a mosquito! Why you be hatin', mosquito?!",
+            "rarity": "Common",
+            "price": 130,
+            "size": [5,7],
+            "time": [1, 2, 3, 4, 17, 18, 19, 20, 21, 22, 23],
+            "months": [6, 7, 8, 9]
+        }
+    ]
+}

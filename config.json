@@ -1,4 +1,6 @@
 {
 	"prefix": "!",
-	"token": "Put token here"
+	"token": "Your token here!",
+	"database": "nookDB",
+	"debug": false
 }

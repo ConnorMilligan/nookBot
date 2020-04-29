@@ -1,11 +1,11 @@
 {
   "name": "fishbot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An Animal Crossing based fishing game for discord!",
   "main": "main.js",
   "dependencies": {
     "discord.js": "^12.1.1",
-    "mongodb": "^3.5.5"
+    "mongodb": "^3.5.7"
   },
   "devDependencies": {
     "eslint": "^6.8.0"

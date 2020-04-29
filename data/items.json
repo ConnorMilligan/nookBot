@@ -1,0 +1,10 @@
+{
+    "items": [{
+        "name": "Flimsy Fishing Rod",
+        "image": "https://nookipedia.com/w/images/a/a1/Flimsy_Fishing_Rod_NH_Icon.png",
+        "price": 400,
+        "multi": 2,
+        "duribility": 10
+    }
+    ]
+}
